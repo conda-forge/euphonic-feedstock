@@ -11,7 +11,7 @@ source:
   sha256: 53c3ee4ec7dd4607faf1da3f0b7419d5a316771685fda40749343a04a9c7c09a
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
