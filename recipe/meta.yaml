@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.0" %}
 
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 53c3ee4ec7dd4607faf1da3f0b7419d5a316771685fda40749343a04a9c7c09a
+  sha256: c35c0e85c658b49c47bedfcaabaa5c446ef13b9bd70a62e931fb319d3f50c600
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
-    - euphonic-optimise-eta = euphonic.cli.optimise_eta:main
+    - euphonic-optimise-dipole-parameter = euphonic.cli.optimise_dipole_parameter:main
     - euphonic-show-sampling = euphonic.cli.show_sampling:main
     - euphonic-intensity-map = euphonic.cli.intensity_map:main
   script: {{ PYTHON }} -m pip install . -vv
@@ -48,7 +48,7 @@ test:
     - pip check
     - euphonic-dispersion --help
     - euphonic-dos --help
-    - euphonic-optimise-eta --help
+    - euphonic-optimise-dipole-parameter --help
     - euphonic-show-sampling --help
     - euphonic-intensity-map --help
   requires:
