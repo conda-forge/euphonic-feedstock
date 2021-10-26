@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "0.6.2" %}
+{% set version = "0.6.3" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 2a2c36fc9948409e6c591a2b8dbd49d108306a61f491bd30a9922699be9394e8
+  sha256: 2850c3348b42764fd100e2d3d61d30547e82d360484fc68d614ece3622c4ab17
 
 build:
   number: 0
@@ -59,7 +59,7 @@ about:
   home: https://github.com/pace-neutrons/Euphonic
   summary: Euphonic calculates phonon bandstructures and inelastic neutron scattering intensities from modelling code output (e.g. CASTEP)
   license: GPL-3.0-only
-  license_file: euphonic/LICENSE
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:
