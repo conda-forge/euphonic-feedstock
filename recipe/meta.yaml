@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "0.6.3" %}
+{% set version = "0.6.4" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 2850c3348b42764fd100e2d3d61d30547e82d360484fc68d614ece3622c4ab17
+  sha256: 2bbb5377ddd1e22d3a67f40d38ab9a07f013a713e198b3e97f77782599bcbb00
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
