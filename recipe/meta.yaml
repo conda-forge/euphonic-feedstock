@@ -26,15 +26,15 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
-    - numpy >=1.12.1
+    - numpy >=1.14.5
     - pip
     - python
   run:
     - importlib_resources >=1.3.0
     - {{ pin_compatible('numpy') }}
-    - pint >=0.9
+    - pint >=0.10.1
     - python
-    - scipy >=1.0.0
+    - scipy >=1.1.0
     - seekpath >=1.1.0
     - spglib >=1.9.4
     - threadpoolctl >=1.0.0
@@ -53,7 +53,7 @@ test:
     - euphonic-intensity-map --help
   requires:
     - pip
-    - matplotlib-base >=2.0.0
+    - matplotlib-base >=2.2.2
 
 about:
   home: https://github.com/pace-neutrons/Euphonic
