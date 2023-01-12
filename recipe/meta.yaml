@@ -11,7 +11,7 @@ source:
   sha256: c4ae8574e62ff3bad3f9bf4f9a1131dee20bca1b9843e7a780c8795a0839349e
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
@@ -26,7 +26,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
-    - numpy >=1.14.5
+    - numpy
     - pip
     - python
   run:
