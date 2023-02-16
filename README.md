@@ -281,6 +281,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@DBJochym](https://github.com/DBJochym/)
 * [@ajjackson](https://github.com/ajjackson/)
 * [@rebeccafair](https://github.com/rebeccafair/)
 
