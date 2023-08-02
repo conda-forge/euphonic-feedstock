@@ -24,7 +24,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     # Use pinned version: somehow we are ending up with v16
-    - llvm-openmp=15  # [osx]
+    - llvm-openmp =15  # [osx]
     - libgomp      # [linux]
   host:
     - numpy
