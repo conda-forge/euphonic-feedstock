@@ -34,9 +34,9 @@ requirements:
   run:
     - importlib_resources >=1.3.0
     - {{ pin_compatible('numpy') }}
-    - pint >=0.10.1
+    - pint >=0.19
     - python
-    - scipy >=1.1.0
+    - scipy >=1.10
     - seekpath >=1.1.0
     - spglib >=1.9.4
     - threadpoolctl >=1.0.0
@@ -55,7 +55,7 @@ test:
     - euphonic-intensity-map --help
   requires:
     - pip
-    - matplotlib-base >=2.2.2
+    - matplotlib-base >=3.2.0
 
 about:
   home: https://github.com/pace-neutrons/Euphonic
