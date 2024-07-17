@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "1.3.1" %}
+{% set version = "1.3.2" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 9e289966050b26c5bdb24af8fa7544aea6dbadc778214cb80768dfe3a8ba473b
+  sha256: 17426b1a0f2ea642444b6da240bb19a2c85166157147e3935d0d7a45a5e594e2
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
@@ -26,6 +26,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - llvm-openmp =15  # [osx]
     - libgomp      # [linux]
   host:
@@ -37,6 +38,7 @@ requirements:
   run:
     - importlib_resources >=1.3.0
     - {{ pin_compatible('numpy') }}
+    - packaging
     - pint >=0.19
     - python
     - scipy >=1.10
