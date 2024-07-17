@@ -38,6 +38,7 @@ requirements:
   run:
     - importlib_resources >=1.3.0
     - {{ pin_compatible('numpy') }}
+    - packaging
     - pint >=0.19
     - python
     - scipy >=1.10
