@@ -22,7 +22,7 @@ build:
 
 requirements:
   build:
-    - python 3.11                            # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
@@ -32,7 +32,7 @@ requirements:
   host:
     # Somehow we are ending up with v16 when pin in build: try requirement here as well
     - llvm-openmp =15  # [osx]
-    - numpy  1.19
+    - numpy
     - pip
     - python
   run:
