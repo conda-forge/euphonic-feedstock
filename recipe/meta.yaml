@@ -32,12 +32,12 @@ requirements:
   host:
     # Somehow we are ending up with v16 when pin in build: try requirement here as well
     - llvm-openmp =15  # [osx]
-    - numpy
+    - numpy  1.19
     - pip
     - python
   run:
     - importlib_resources >=1.3.0
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.19.5,<2.0.a0   # Min euphonic-supported version
     - packaging
     - pint >=0.19
     - python
