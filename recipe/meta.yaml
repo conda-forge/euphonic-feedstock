@@ -11,7 +11,7 @@ source:
   sha256: 17426b1a0f2ea642444b6da240bb19a2c85166157147e3935d0d7a45a5e594e2
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
@@ -37,7 +37,7 @@ requirements:
     - python
   run:
     - importlib_resources >=1.3.0
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.22
     - packaging
     - pint >=0.19
     - python
