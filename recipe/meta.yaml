@@ -21,6 +21,7 @@ build:
     - euphonic-intensity-map = euphonic.cli.intensity_map:main
     - euphonic-powder-map = "euphonic.cli.powder_map:main"
   script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<310]
 
 requirements:
   build:
@@ -37,7 +38,7 @@ requirements:
     - llvm-openmp =15  # [osx]
     - numpy
     - pip
-    - python >=3.10
+    - python
     - meson-python
     - meson >=1.6
   run:
