@@ -13,11 +13,13 @@ source:
 build:
   number: 0
   entry_points:
+    - euphonic-brille-convergence = "euphonic.cli.brille_convergence:main"
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
     - euphonic-optimise-dipole-parameter = euphonic.cli.optimise_dipole_parameter:main
     - euphonic-show-sampling = euphonic.cli.show_sampling:main
     - euphonic-intensity-map = euphonic.cli.intensity_map:main
+    - euphonic-powder-map = "euphonic.cli.powder_map:main"
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -36,15 +38,15 @@ requirements:
     - pip
     - python
   run:
-    - importlib_resources >=1.3.0
-    - numpy >=1.22
+    - numpy >=1.24
     - packaging
-    - pint >=0.19
-    - python
+    - pint >=0.22
+    - python >=3.10
     - scipy >=1.10
     - seekpath >=1.1.0
     - spglib >=1.9.4
-    - threadpoolctl >=1.0.0
+    - threadpoolctl >=3.0.0
+    - toolz >=0.12.1
 
 test:
   imports:
@@ -60,7 +62,7 @@ test:
     - euphonic-intensity-map --help
   requires:
     - pip
-    - matplotlib-base >=3.2.0
+    - matplotlib-base >=3.8.0
 
 about:
   home: https://github.com/pace-neutrons/Euphonic
