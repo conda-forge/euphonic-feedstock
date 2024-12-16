@@ -45,7 +45,7 @@ requirements:
     - packaging
     - pint >=0.22
     - python
-    - python_min = 3.10
+    - python_min =3.10
     - scipy >=1.10
     - seekpath >=1.1.0
     - spglib >=1.9.4
