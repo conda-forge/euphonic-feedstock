@@ -37,7 +37,7 @@ requirements:
     - llvm-openmp =15  # [osx]
     - numpy
     - pip
-    - python
+    - python >=3.10
     - meson-python
     - meson >=1.6
   run:
@@ -45,7 +45,6 @@ requirements:
     - packaging
     - pint >=0.22
     - python
-    - python_min =3.10
     - scipy >=1.10
     - seekpath >=1.1.0
     - spglib >=1.9.4
