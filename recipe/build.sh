@@ -25,9 +25,14 @@ fi
 # avoid messing with that currently-working case
 if [[ $target_platform == "osx-arm64" ]]
 then
-    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+    NUMPY_PKGCONFIG=$(find $PREFIX -d -path '*numpy/_core/lib/pkgconfig')
+    ls $NUMPY_PKGCONFIG
+
+    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig:$NUMPY_PKGCONFIG
     #export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig  #:$BUILD_PREFIX/lib/python3.{10,11,12}/site-packages/numpy/_core/lib/pkgconfig
-    ls $PKG_CONFIG_PATH
+    echo $PKG_CONFIG_PATH
+
+    $PREFIX/bin/pkg-config --modversion numpy
 
 cat <<EOF > ${CONDA_PREFIX}/meson_cross_file.txt
 [host_machine]
