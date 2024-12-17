@@ -20,7 +20,6 @@ build:
     - euphonic-show-sampling = euphonic.cli.show_sampling:main
     - euphonic-intensity-map = euphonic.cli.intensity_map:main
     - euphonic-powder-map = euphonic.cli.powder_map:main
-  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<310]
 
 requirements:
@@ -39,8 +38,10 @@ requirements:
     - numpy
     - pip
     - python
+    - python-build
     - meson-python
     - meson >=1.6
+    - packaging
   run:
     - numpy >=1.24
     - packaging
