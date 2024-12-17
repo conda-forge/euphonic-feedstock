@@ -25,14 +25,13 @@ fi
 # avoid messing with that currently-working case
 if [[ $target_platform == "osx-arm64" ]]
 then
-    NUMPY_PKGCONFIG=$(find $PREFIX -d -path '*numpy/_core/lib/pkgconfig')
+    NUMPY_PKGCONFIG=$(find $BUILD_PREFIX -d -path '*numpy/_core/lib/pkgconfig')
     ls $NUMPY_PKGCONFIG
 
-    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig:$NUMPY_PKGCONFIG
-    #export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig  #:$BUILD_PREFIX/lib/python3.{10,11,12}/site-packages/numpy/_core/lib/pkgconfig
+    export PKG_CONFIG_PATH=$BUILD_PREFIX/lib/pkgconfig:$NUMPY_PKGCONFIG
     echo $PKG_CONFIG_PATH
 
-    $PREFIX/bin/pkg-config --modversion numpy
+    $BUILD_PREFIX/bin/pkg-config --modversion numpy
 
 cat <<EOF > ${CONDA_PREFIX}/meson_cross_file.txt
 [host_machine]
@@ -42,17 +41,13 @@ cpu_family = 'aarch64'
 endian = 'little'
 [binaries]
 # cmake = '$BUILD_PREFIX/bin/cmake'
-pkg-config = '$PREFIX/bin/pkg-config'
+pkg-config = '$BUILD_PREFIX/bin/pkg-config'
 [properties]
 needs_exe_wrapper = true
-python = '$PREFIX/bin/python'
+python = '$BUILD_PREFIX/bin/python'
 
 EOF
 
-# Exfiltrate some information about what is going on here
-# (Yes, I am getting desperate)
-
-cat ${CONDA_PREFIX}/meson_cross_file.txt
 fi
 
 
