@@ -59,9 +59,10 @@ fi
 
 for PREFIX_ENV in $PREFIX $BUILD_PREFIX $CONDA_PREFIX
 do
-    echo $PREFIX_ENV
-    ls $PREFIX_ENV
+    echo "Searching prefix $PREFIX_ENV"
+    ls ${PREFIX_ENV}/bin
     find $PREFIX_ENV -name 'numpy.pc'
+    find $PREFIX_ENV -name pkg-config
 done
 
     echo ${PYTHON}
