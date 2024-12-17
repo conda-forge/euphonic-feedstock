@@ -26,7 +26,7 @@ fi
 if [[ $target_platform == "osx-arm64" ]]
 then
     # export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
-    export PKG_CONFIG_PATH=${CONDA_PREFIX}/lib/pkgconfig
+    # export PKG_CONFIG_PATH=${CONDA_PREFIX}/lib/pkgconfig
 
 # ~~~~ From Numpy build.sh  ~~~~
 # HACK: extend $CONDA_PREFIX/meson_cross_file that's created in
@@ -35,7 +35,22 @@ then
 # to use host python; requires that [binaries] section is last in meson_cross_file
 echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
 
+# Exfiltrate some information about what is going on here
+# (Yes, I am getting desperate)
+
+cat ${CONDA_PREFIX}/meson_cross_file.txt
 fi
+
+
+for PREFIX_ENV in $PREFIX $BUILD_PREFIX $CONDA_PREFIX
+do
+    echo $PREFIX_ENV
+    ls $PREFIX_ENV
+    find $PREFIX_ENV -name 'numpy.pc'
+done
+
+    echo ${PYTHON}
+    ${PYTHON} -c "import numpy"
 
 mkdir builddir
 
