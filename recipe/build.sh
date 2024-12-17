@@ -25,7 +25,8 @@ fi
 # avoid messing with that currently-working case
 if [[ $target_platform == "osx-arm64" ]]
 then
-export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+    # export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+    export PKG_CONFIG_PATH=${CONDA_PREFIX}/lib/pkgconfig
 
 # ~~~~ From Numpy build.sh  ~~~~
 # HACK: extend $CONDA_PREFIX/meson_cross_file that's created in
