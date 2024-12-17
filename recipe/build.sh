@@ -9,6 +9,20 @@ set -ex
 
 mkdir builddir
 
+echo $(uname -s)
+
+# Remove problematic vsenv argument from pyproject.toml
+sed -I '.bkp' "s/setup = \[\'--vsenv\'\]/setup = []/" pyproject.toml
+
+# If linux, do regular meson-python build and exit early
+if test $(uname -s) = Linux
+then
+    ${PYTHON} -m pip install . -vv
+    exit 0
+fi
+
+# Otherwise, it's a Mac
+
 # need to run meson first for cross-compilation case
 ${PYTHON} $(which meson) setup ${MESON_ARGS} \
     builddir || (cat builddir/meson-logs/meson-log.txt && exit 1)
