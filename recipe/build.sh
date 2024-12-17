@@ -33,7 +33,22 @@ then
 # https://github.com/conda-forge/ctng-compiler-activation-feedstock/blob/main/recipe/activate-gcc.sh
 # https://github.com/conda-forge/clang-compiler-activation-feedstock/blob/main/recipe/activate-clang.sh
 # to use host python; requires that [binaries] section is last in meson_cross_file
-echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+# echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+
+cat <<EOF > ${CONDA_PREFIX}/meson_cross_file.txt
+[host_machine]
+system = 'darwin'
+cpu = 'arm64'
+cpu_family = 'aarch64'
+endian = 'little'
+[binaries]
+# cmake = '$BUILD_PREFIX/bin/cmake'
+pkg-config = '$PREFIX/bin/pkg-config'
+[properties]
+needs_exe_wrapper = true
+python = '$PREFIX/bin/python'
+
+EOF
 
 # Exfiltrate some information about what is going on here
 # (Yes, I am getting desperate)
