@@ -12,7 +12,7 @@ mkdir builddir
 echo $(uname -s)
 
 # Remove problematic vsenv argument from pyproject.toml
-sed -I '.bkp' "s/setup = \[\'--vsenv\'\]/setup = []/" pyproject.toml
+sed -i "s/setup = \[\'--vsenv\'\]/setup = []/" pyproject.toml
 
 # If linux, do regular meson-python build and exit early
 if test $(uname -s) = Linux
