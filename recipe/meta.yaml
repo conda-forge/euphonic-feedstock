@@ -25,7 +25,6 @@ build:
 
 requirements:
   build:
-    - meson-python
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
@@ -40,6 +39,7 @@ requirements:
     - numpy
     - pip
     - python
+    - meson-python
     - meson >=1.6
   run:
     - numpy >=1.24
