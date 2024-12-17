@@ -7,8 +7,6 @@ set -ex
 #
 # Script is largely "borrowed" from scikit-image as we ran into the same build errors
 
-mkdir builddir
-
 echo $(uname -s)
 
 # Remove problematic vsenv argument from pyproject.toml
@@ -22,6 +20,15 @@ then
 fi
 
 # Otherwise, it's a Mac
+
+# This variable is _probably_ harmless on Intel, but lets
+# avoid messing with that currently-working case
+if [[ $target_platform == "osx-arm64" ]]
+then
+export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+fi
+
+mkdir builddir
 
 # need to run meson first for cross-compilation case
 ${PYTHON} $(which meson) setup ${MESON_ARGS} \

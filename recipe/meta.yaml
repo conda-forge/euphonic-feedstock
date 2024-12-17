@@ -28,6 +28,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - llvm-openmp =15  # [osx]
@@ -43,6 +44,7 @@ requirements:
     - meson-python
     - meson >=1.6
     - packaging
+    - pkg-config
   run:
     - numpy >=1.24
     - packaging
