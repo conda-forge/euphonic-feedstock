@@ -44,6 +44,7 @@ requirements:
     - meson-python
     - meson >=1.6
     - packaging
+    - pkg-config                           # [build_platform != target_platform]
   run:
     - numpy >=1.24
     - packaging

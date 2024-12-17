@@ -25,15 +25,9 @@ fi
 # avoid messing with that currently-working case
 if [[ $target_platform == "osx-arm64" ]]
 then
-    # export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
-    # export PKG_CONFIG_PATH=${CONDA_PREFIX}/lib/pkgconfig
-
-# ~~~~ From Numpy build.sh  ~~~~
-# HACK: extend $CONDA_PREFIX/meson_cross_file that's created in
-# https://github.com/conda-forge/ctng-compiler-activation-feedstock/blob/main/recipe/activate-gcc.sh
-# https://github.com/conda-forge/clang-compiler-activation-feedstock/blob/main/recipe/activate-clang.sh
-# to use host python; requires that [binaries] section is last in meson_cross_file
-# echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+    #export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig  #:$BUILD_PREFIX/lib/python3.{10,11,12}/site-packages/numpy/_core/lib/pkgconfig
+    ls $PKG_CONFIG_PATH
 
 cat <<EOF > ${CONDA_PREFIX}/meson_cross_file.txt
 [host_machine]
