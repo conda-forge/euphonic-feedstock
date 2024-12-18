@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "1.3.2" %}
+{% set version = "1.4.0.post1" %}
 
 
 package:
@@ -7,44 +7,53 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 17426b1a0f2ea642444b6da240bb19a2c85166157147e3935d0d7a45a5e594e2
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
+  sha256: a2e634e526c49d7e542c8623f807c9d3cac0153d9a99156455e57149e55e54c7
 
 build:
-  number: 1
+  number: 0
   entry_points:
+    - euphonic-brille-convergence = euphonic.cli.brille_convergence:main
     - euphonic-dispersion = euphonic.cli.dispersion:main
     - euphonic-dos = euphonic.cli.dos:main
     - euphonic-optimise-dipole-parameter = euphonic.cli.optimise_dipole_parameter:main
     - euphonic-show-sampling = euphonic.cli.show_sampling:main
     - euphonic-intensity-map = euphonic.cli.intensity_map:main
-  script: {{ PYTHON }} -m pip install . -vv
+    - euphonic-powder-map = euphonic.cli.powder_map:main
+  skip: true  # [py<310]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - ninja                                  # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - llvm-openmp =15  # [osx]
     - libgomp      # [linux]
+
   host:
     # Somehow we are ending up with v16 when pin in build: try requirement here as well
     - llvm-openmp =15  # [osx]
     - numpy
     - pip
     - python
-  run:
-    - importlib_resources >=1.3.0
-    - numpy >=1.22
+    - python-build
+    - meson-python
+    - meson >=1.6
     - packaging
-    - pint >=0.19
+  run:
+    - numpy >=1.24
+    - packaging
+    - pint >=0.22
     - python
     - scipy >=1.10
     - seekpath >=1.1.0
     - spglib >=1.9.4
-    - threadpoolctl >=1.0.0
+    - threadpoolctl >=3.0.0
+    - toolz >=0.12.1
 
 test:
   imports:
@@ -60,7 +69,7 @@ test:
     - euphonic-intensity-map --help
   requires:
     - pip
-    - matplotlib-base >=3.2.0
+    - matplotlib-base >=3.8.0
 
 about:
   home: https://github.com/pace-neutrons/Euphonic
