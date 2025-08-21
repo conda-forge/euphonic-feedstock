@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "1.4.4" %}
+{% set version = "1.4.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 5ba6db5475812fcccb5faa0793d1f14ce9cf56535c303ce0584e4c263ad732a6
+  sha256: 5c699595955a8e7ac46c4af670a13c54a6ff450c7869214d223dd75d004424bf
 
 build:
   number: 0
