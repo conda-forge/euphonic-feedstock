@@ -11,7 +11,7 @@ source:
   sha256: 5c699595955a8e7ac46c4af670a13c54a6ff450c7869214d223dd75d004424bf
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - euphonic-brille-convergence = euphonic.cli.brille_convergence:main
     - euphonic-dispersion = euphonic.cli.dispersion:main
