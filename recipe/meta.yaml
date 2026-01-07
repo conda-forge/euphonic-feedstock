@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "1.4.5" %}
+{% set version = "1.5.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: 5c699595955a8e7ac46c4af670a13c54a6ff450c7869214d223dd75d004424bf
+  sha256: 341d3c8f8484464819e0332f34e8fb38b8d9be583197c556a983da86179f2db8
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - euphonic-brille-convergence = euphonic.cli.brille_convergence:main
     - euphonic-dispersion = euphonic.cli.dispersion:main
