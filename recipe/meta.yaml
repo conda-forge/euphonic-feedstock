@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "1.6.1" %}
+{% set version = "1.6.2" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: f6f96b37b13feb00522a68e45e5b7f0c19169f5a468bf9d892fe28ffcc5bd6bd
+  sha256: 56f01e75aab40b5064093a283e36c2baa02d4e40dc1bc3b81b1c45a9f3a9baac
 
 build:
   number: 0
@@ -54,6 +54,7 @@ requirements:
     - spglib >=2.1.0
     - threadpoolctl >=3.0.0
     - toolz >=0.12.1
+    - typing_extensions >=4.0,<5
 
 test:
   imports:
