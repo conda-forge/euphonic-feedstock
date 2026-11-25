@@ -1,5 +1,5 @@
 {% set name = "euphonic" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/euphonic-{{ version }}.tar.gz
-  sha256: b842de5c4a2d5bb052d09d7d2368ea745797cabb3119b1672f61d41e35c05de7
+  sha256: 4873fddd9d1399ba4a2373fcdc7e47fefa501e9546300bc2b715c6e2c5dfc50a
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - euphonic-brille-convergence = euphonic.cli.brille_convergence:main
     - euphonic-dispersion = euphonic.cli.dispersion:main
